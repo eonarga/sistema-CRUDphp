@@ -11,3 +11,5 @@ $sql->bindValue(':cod_produto', $codigo);
 $sql->bindValue(':nome_produto', $nome);
 $sql->bindValue(':preco_produto', $preco);
 $sql->execute();
+
+header("Location: index.php");
