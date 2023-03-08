@@ -81,7 +81,7 @@
         </div>
     </div> 
 
-
+    <form method="post" action="cadastrar.php">
       <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -90,24 +90,23 @@
               <button type="button" id="fechaModal" class="btn border  text-white bg-danger rounded-5 shadow-sm" data-dismiss="modal" aria-label="Close">X</button>
             </div>
             <div class="modal-body">
-              <form method="post" action="cadastrar.php">
               <div class="mt-4">
                 <label for="cod_produto"><strong> Código do produto</strong></label>
                 <input class="form-control" name="cod_produto" id="cod_produto" type="number" placeholder="Insira o código do produto" aria-label="default input example">
               </div>
               
               <div class="mt-4">
-                <label for="nome"><strong>Nome do produto</strong></label>
-                <input class="form-control" name="nome" id="nome" type="text" placeholder="Insira o nome do produto" aria-label="default input example">
+                <label for="nome_produto"><strong>Nome do produto</strong></label>
+                <input class="form-control" name="nome_produto" id="nome_produto" type="text" placeholder="Insira o nome do produto" aria-label="default input example">
               </div>
 
               <div class="mt-4 mb-4">
-                <label for="preco"><strong>Preço do produto</strong></label>
-                <input class="form-control" name="preco" id="preco" type="number" placeholder="Insira o preço do produto" aria-label="default input example">
+                <label for="preco_produto"><strong>Preço do produto</strong></label>
+                <input class="form-control" name="preco_produto" id="preco_produto" type="number" placeholder="Insira o preço do produto" aria-label="default input example">
               </div>
             </div>
             <div class="modal-footer w-100">
-              <button type="button" class="btn btn-primary  w-100 p-2 d-inline text-dark bg-primary-subtle border rounded-4 mx-3 d-block shadow-sm">Adicionar produto</button>
+              <button type="input" class="btn btn-primary  w-100 p-2 d-inline text-dark bg-primary-subtle border rounded-4 mx-3 d-block shadow-sm">Adicionar produto</button>
             </div>
           </div>
         </div>
