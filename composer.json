@@ -1,0 +1,15 @@
+{
+    "name": "lucas/sistema-cru-dphp",
+    "autoload": {
+        "psr-4": {
+            "Lucas\\SistemaCruDphp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Lucas",
+            "email": "69332675+gabrielgt5@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
