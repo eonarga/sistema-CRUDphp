@@ -1,3 +1,20 @@
+<?php
+
+  if(isset($_POST['submit']))
+  {
+
+  include_once('../helpers/db.php');
+
+  $cod_produto = $_POST['cod_produto'];
+  $nome_produto = $_POST['nome_produto'];
+  $valor = $_POST['valor'];
+    
+  $result = mysqli_query($conexao, "INSERT INTO produtos(id, nome_produto, valor) VALUES ('$cod_produto', '$nome_produto', '$valor')");
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +79,7 @@
         </div>
     </div> 
 
-    <form method="post" action="cadastrar.php">
+    <form method="post" action="index.php">
       <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -87,7 +104,7 @@
               </div>
             </div>
             <div class="modal-footer w-100">
-              <button type="submit" class="btn btn-primary  w-100 p-2 d-inline text-dark bg-primary-subtle border rounded-4 mx-3 d-block shadow-sm">Adicionar produto</button>
+              <button type="submit" name="submit" id="submit" class="btn btn-primary  w-100 p-2 d-inline text-dark bg-primary-subtle border rounded-4 mx-3 d-block shadow-sm">Adicionar produto</button>
             </div>
           </div>
         </div>
