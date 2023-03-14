@@ -1,21 +1,22 @@
 <?php
 
-    if(!empty($_GET['id_produto']))
+    if(!empty($_GET['id']))
     {
-        include_once('Conection.php');
+        include_once('../helpers/db.php');
 
-        $id = $_GET['id_produto'];
+        $id = $_GET['id'];
 
-        $sqlSelect = "SELECT *  FROM produtos WHERE id_produto=$id";
+        $sqlSelect = "SELECT *  FROM produtos WHERE id=$id";
 
         $result = $conexao->query($sqlSelect);
 
         if($result->num_rows > 0)
         {
-            $sqlDelete = "DELETE FROM produtos WHERE id_produto=$id";
+            $sqlDelete = "DELETE FROM produtos WHERE id=$id";
             $resultDelete = $conexao->query($sqlDelete);
         }
     }
-    header('Location: index.php');
+
+    header("Location: ../views/index.php");
    
 ?>
