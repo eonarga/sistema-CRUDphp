@@ -4,15 +4,15 @@
     if(!empty($_GET['id']))
     {
         $id = $_GET['id'];
-        $sqlSelect = "SELECT * FROM usuarios WHERE id=$id";
+        $sqlSelect = "SELECT * FROM produtos WHERE id=$id";
         $result = $conexao->query($sqlSelect);
         if($result->num_rows > 0)
         {
             while($user_data = mysqli_fetch_assoc($result))
             {
-                $cod_produto = $_POST['cod_produto'];
-                $nome_produto = $_POST['nome_produto'];
-                $valor = $_POST['valor'];
+                $cod_produto = $user_data['id'];
+                $nome_produto = $user_data['nome_produto'];
+                $valor = $user_data['valor'];
             }
         }
         else
@@ -40,9 +40,7 @@
 <body>
     
     <div class="container border mt-5 mb-3 rounded-4 shadow "> 
-
-        
-        
+ 
           <div class="row">
             <div class="col-sm-8 mt-3 mb-1">
                 <h1 class="fs-1 text-dark  mx-4"><strong>Olá usuário</strong></h1>
@@ -59,7 +57,6 @@
             <strong>Gerenciamento de Produtos</strong> 
         </div>
 
-
         <div class="container mt-5 border rounded-4 mb-2"> 
 
             <h5 class="h2 modal-title">Edite seu produto</h5>
@@ -74,18 +71,18 @@
                         <th scope="col"></th>
                       </tr>
                     </thead>
-                    
-                        <tbody>
-                            <tr>
-                                <td><input  class="form-control rounded-4 shadow-sm" name="nome_produto" id="nome_produto" type="text" value=<?php echo $nome_produto;?>></td>
-                                <td><input  class="form-control rounded-4 shadow-sm" name="valor" id="valor" type="number" value=<?php echo $valor;?>></td>
-                                <td>
-                                    <input type="hidden" name="id" value=<?php echo $id;?>>
-                                    <button type="submit" name="update" id="submit" class="btn btn-sm btn-primary d-inline text-dark bg-primary-subtle border rounded-4 shadow-sm">Aplicar Edição</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                
+                        <form action="saveEdit.php" method="POST">
+                            <tbody>
+                                <tr>
+                                    <td><input  class="form-control rounded-4 shadow-sm" name="nome_produto" id="nome_produto" type="text" value=<?php echo $nome_produto;?>></td>
+                                    <td><input  class="form-control rounded-4 shadow-sm" name="valor" id="valor" type="number" value=<?php echo $valor;?>></td>
+                                    <td>
+                                        <input type="hidden" name="id" value=<?php echo $id;?>>
+                                        <button type="submit" name="update" id="submit" class="btn btn-sm btn-primary d-inline text-dark bg-primary-subtle border rounded-4 shadow-sm">Aplicar Edição</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </form>
                   </table>
             </div>
         </div>
