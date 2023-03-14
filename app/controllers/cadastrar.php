@@ -1,15 +1,14 @@
 <?php
+  include_once('../helpers/db.php');
+  if(isset($_POST['submit']))
+  {
+  $cod_produto = $_POST['cod_produto'];
+  $nome_produto = $_POST['nome_produto'];
+  $valor = $_POST['valor'];
+    
+  $result = mysqli_query($conexao, " INSERT INTO produtos(id, nome_produto, valor) VALUES ($cod_produto, '$nome_produto', $valor)");
+  }
 
-require'Conection.php';
+  header("Location: ../views/index.php");
+?>
 
-$codigo = filter_input(INPUT_POST,'cod_produto');
-$nome = filter_input(INPUT_POST,'nome_produto');
-$preco = filter_input(INPUT_POST,'preco_produto');
-
-$sql = $pdo->prepare("INSERT INTO produtos (cod_produto, nome_produto, preco_produto) VALUES (:cod_produto, :nome_produto, :preco_produto)");
-$sql->bindValue(':cod_produto', $codigo);
-$sql->bindValue(':nome_produto', $nome);
-$sql->bindValue(':preco_produto', $preco);
-$sql->execute();
-
-header("Location: index.php");
