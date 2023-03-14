@@ -41,7 +41,7 @@
     
     <div class="container border mt-5 mb-3 rounded-4 shadow "> 
  
-          <div class="row">
+        <div class="row">
             <div class="col-sm-8 mt-3 mb-1">
                 <h1 class="fs-1 text-dark  mx-4"><strong>Olá usuário</strong></h1>
                 <h3 class="fs-3 text-dark pt-3 mx-4 " >Bem-vindo ao Sistema CRUD</h3>
@@ -52,8 +52,7 @@
             </div>
         </div>
      
-        <div class="shadow-sm p-2 d-inline text-dark bg-danger-subtle rounded-4 mx-4">
-           
+        <div class="shadow-sm p-2 d-inline text-dark bg-danger-subtle rounded-4 mx-4">  
             <strong>Gerenciamento de Produtos</strong> 
         </div>
 
