@@ -1,8 +1,8 @@
 <?php
 
     $dbHost = 'localhost';
-    $dbUsername = 'gabriel';
-    $dbPassword = '123456';
+    $dbUsername = 'root';
+    $dbPassword = 'root';
     $dbName = 'crud';
     
     $conexao = new mysqli($dbHost,$dbUsername,$dbPassword,$dbName);
