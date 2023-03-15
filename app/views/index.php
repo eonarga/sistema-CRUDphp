@@ -66,12 +66,12 @@
             <div class="mt-3">
                 <button class="btn btn-primary p-2 d-inline text-dark bg-success-subtle border rounded-4 mx-3 d-block shadow-sm " data-toggle="modal" data-target="#modalExemplo" id="btn_add" > Adicionar Produtos</button>
                 
-                <form class="form-inline row mt-3 mx-1">
-                        <div class="col-sm-8"><input class="form-control mr-sm-2 rounded-4 shadow-sm" id="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar"></div>
-                        <div class="col-sm-4"><button  onclick="searchData()" class="btn btn-outline-success my-2 my-sm-0 rounded-4 shadow-sm" type="submit">Pesquisar</button></div>
-                </form>
-            </div>
+                <div class="box-search row mt-3 mx-1">
+                  <div class="col-sm-8"><input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar"></div>
+                  <div class="col-sm-4"><button onclick="searchData()" class="btn btn-outline-success my-2 my-sm-0 rounded-4 shadow-sm"></div>
+                </div>
 
+            </button>
             
         </div>
             
