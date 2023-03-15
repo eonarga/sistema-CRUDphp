@@ -65,15 +65,14 @@
 
             <div class="mt-3">
                 <button class="btn btn-primary p-2 d-inline text-dark bg-success-subtle border rounded-4 mx-3 d-block shadow-sm " data-toggle="modal" data-target="#modalExemplo" id="btn_add" > Adicionar Produtos</button>
-                <br>
-                <div class="box-search">
-                <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
-              <button onclick="searchData()" class="btn btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-              </svg>
-            </button>
+                
+                <form class="form-inline row mt-3 mx-1">
+                        <div class="col-sm-8"><input class="form-control mr-sm-2 rounded-4 shadow-sm" id="pesquisar" type="search" placeholder="Pesquisar" aria-label="Pesquisar"></div>
+                        <div class="col-sm-4"><button  onclick="searchData()" class="btn btn-outline-success my-2 my-sm-0 rounded-4 shadow-sm" type="submit">Pesquisar</button></div>
+                </form>
             </div>
+
+            
         </div>
             
             <div class="container mt-3 ">
