@@ -17,6 +17,18 @@
   $sql = "SELECT * FROM produtos";
   $result = $conexao->query($sql);
 
+
+
+  if(!empty($_GET['search']))
+  {
+      $data = $_GET['search'];
+      $sql = "SELECT * FROM produtos WHERE id LIKE '%$data%' or nome_produto LIKE '%$data%' or valor LIKE '%$data%' ORDER BY id DESC";
+  }
+  else
+  {
+      $sql = "SELECT * FROM produtos ORDER BY id DESC";
+  }
+  $result = $conexao->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -53,18 +65,16 @@
 
             <div class="mt-3">
                 <button class="btn btn-primary p-2 d-inline text-dark bg-success-subtle border rounded-4 mx-3 d-block shadow-sm " data-toggle="modal" data-target="#modalExemplo" id="btn_add" > Adicionar Produtos</button>
-               
-                <div class="dropdown mt-3 mx-3">
-                    <button class="p-1 btn btn-outline-dark rounded-3 dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Classificar
-                    </button>
-                      <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="">Classificar ordem crescente</a></li>
-                        <li><a class="dropdown-item" href="">Classificar ordem decrescente</a></li>
-                    </ul>
-              
-                  </div>
+                <br>
+                <div class="box-search">
+                <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+              <button onclick="searchData()" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </button>
             </div>
+        </div>
             
             <div class="container mt-3 ">
                 <table class="table">
@@ -73,7 +83,7 @@
                         <th scope="col">COD</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Preço</th>
-                        <th scope="col"></th>
+                        <th scope="col">Ação</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -134,4 +144,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.js"></script>
 </body>
+<script>
+    var search = document.getElementById('pesquisar');
+
+    search.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") 
+        {
+            searchData();
+        }
+    });
+
+    function searchData()
+    {
+        window.location = '../views/index.php?search='+search.value;
+    }
+</script>
 </html>
