@@ -1,5 +1,6 @@
 <?php
 
+// utiliza a função empty para saber se a variavel está vazia
     if(!empty($_GET['id']))
     {
         include_once('../helpers/db.php');

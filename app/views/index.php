@@ -1,5 +1,5 @@
 <?php
-
+// usa a função nativa do php para verificar se a variavel está edfinida ou não
   
   include_once('../helpers/db.php');
   
@@ -9,16 +9,18 @@
   $nome_produto = $_POST['nome_produto'];
   $valor = $_POST['valor'];
     
-  $resultado = mysqli_query($conexao, " INSERT INTO produtos(id, nome_produto, valor) VALUES ($cod_produto, '$nome_produto', $valor)");
+  $resultado = mysqli_query($conexao, "INSERT INTO produtos(id, nome_produto, valor) VALUES ($cod_produto, '$nome_produto', $valor)");
   }
 
 
+//$result utiliza uma query para fazer a consulta ao banco de dados
 
   $sql = "SELECT * FROM produtos";
   $result = $conexao->query($sql);
 
 
-
+// utiliza a função empty para saber se a variavel está vazia
+// como se trata de um search (pesquisa) ele retorna true se for vazia e false se não for vazia
   if(!empty($_GET['search']))
   {
       $data = $_GET['search'];
@@ -69,10 +71,7 @@
                 <div class="box-search row mt-3 mx-1">
                   <div class="col-sm-8"><input type="search" class="form-control" placeholder="Pesquisar" id="pesquisar"></div>
                   <div class="col-sm-4"><button onclick="searchData()" class="btn btn-outline-success my-2 my-sm-0 rounded-4 shadow-sm">Pesquisar</button></div>
-                </div>
-
-            
-            
+                </div>   
         </div>
             
             <div class="container mt-3 ">
@@ -87,6 +86,8 @@
                     </thead>
                     <tbody>
                       <?php
+                      //A função mysqli_fetch_assoc() é usada para retornar uma matriz associativa
+                      //representando a próxima linha no conjunto de resultados representado pelo parâmetro result
                         while($user_data = mysqli_fetch_assoc($result)){
                           echo "<tr>";
                             echo "<td>".$user_data['id']."</td>";
@@ -104,7 +105,7 @@
             </div>
         </div>
     </div> 
-
+    <!--A partir deste ponto se inicia o modal-->
     <form method="post" action="index.php">
                         
       <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -143,6 +144,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.js"></script>
 </body>
+<!-- Aqui se tem o script da função de pesquisar, adicionando um evento ao botao de pesquisa
+e utilizando a function seachData para pesquisar no banco de dados -->
 <script>
     var search = document.getElementById('pesquisar');
 
